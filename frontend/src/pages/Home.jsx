@@ -85,7 +85,7 @@ const Home = () => {
             <p className="text-lg text-white/90 mb-10">
               Join thousands of teams who trust <span className="font-semibold">InsightChat</span> for smart, real-time communication.
             </p>
-            <Link to={'/signup'} className="px-8 py-4 bg-white text-blue-600 rounded-lg text-xl font-semibold shadow-lg hover:bg-gray-200 transition">
+            <Link to={'/login'} className="px-8 py-4 bg-white text-blue-600 rounded-lg text-xl font-semibold shadow-lg hover:bg-gray-200 transition">
               Create Your Free Account
             </Link>
           </div>
