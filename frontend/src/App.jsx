@@ -18,8 +18,13 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/login" element={<Login_Signup />}></Route>
+          <Route path="/auth" element={<Login_Signup />}></Route>
           <Route path="*" element={<NotFoundPage />} />
+
+          <Route >
+            {/* to make routes of chat dashboard */}
+          </Route>
+
         </Routes>
         
       </div>

@@ -24,7 +24,7 @@ const Home = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4 text-center">
-              <Link to={'/login'} className="px-6 py-3 bg-blue-600 text-white rounded-lg text-lg hover:bg-blue-700 transition">
+              <Link to={'/auth'} className="px-6 py-3 bg-blue-600 text-white rounded-lg text-lg hover:bg-blue-700 transition">
                 Get Started Free
               </Link>
               <button
@@ -85,7 +85,7 @@ const Home = () => {
             <p className="text-lg text-white/90 mb-10">
               Join thousands of teams who trust <span className="font-semibold">InsightChat</span> for smart, real-time communication.
             </p>
-            <Link to={'/login'} className="px-8 py-4 bg-white text-blue-600 rounded-lg text-xl font-semibold shadow-lg hover:bg-gray-200 transition">
+            <Link to={'/auth'} className="px-8 py-4 bg-white text-blue-600 rounded-lg text-xl font-semibold shadow-lg hover:bg-gray-200 transition">
               Create Your Free Account
             </Link>
           </div>

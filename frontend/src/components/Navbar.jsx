@@ -8,6 +8,7 @@ const Navbar = () => {
     const { user } = useSelector((state) => state.user);
     return (
         <nav className='shadow-md bg-white w-full relative'>
+            <div className='absolute bg-gray-300 bottom-0 right-0 left-0 h-[1px]'></div>
 
             <div className='flex justify-between items-center w-[90%] mx-auto h-[3.5rem]'>
                 {/* Logo */}
@@ -51,7 +52,7 @@ const Navbar = () => {
                         </div>
                     ) : (
                         <div className='flex gap-4'>
-                            <NavLink to={'/login'}
+                            <NavLink to={'/auth'}
                                 className={({ isActive }) =>
                                     `border px-4 py-1 rounded-md hover:text-[#2563eb] 
                                     ${isActive ? 'bg-[#2563eb] text-white border-2 font-semibold hover:text-white' : ''}`
@@ -96,7 +97,7 @@ const Navbar = () => {
                     </div>
                 ) : (
                     <div className='flex flex-col items-center w-full'>
-                        <NavLink to={'/login'}
+                        <NavLink to={'/auth'}
                             className={({ isActive }) =>
                                 `py-2 text-lg w-full text-center hover:bg-gray-100 ${isActive ? 'text-[#2563eb] font-semibold' : 'text-black'}`
                             }
