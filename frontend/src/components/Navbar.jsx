@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BiMessageDetail } from "react-icons/bi";
-import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { logout } from '../services/operations/authAPI';
 
 const Navbar = () => {
     const { token } = useSelector((state) => state.token);
     const { user } = useSelector((state) => state.user);
+    const [tab, showTab] = useState(false);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const logoutHandler = () => {
+        dispatch(logout(navigate));
+    }
     return (
         <nav className='shadow-md bg-white w-full relative'>
             <div className='absolute bg-gray-300 bottom-0 right-0 left-0 h-[1px]'></div>
@@ -43,8 +51,7 @@ const Navbar = () => {
 
                                 {tab && (
                                     <div className='absolute top-[3.25rem] -left-10 border rounded-lg bg-white shadow-lg flex flex-col items-center z-50 overflow-hidden'>
-                                        <Link to={'/dashboard/my-profile'} className='cursor-pointer text-lg border-b w-full text-center px-4 py-2 hover:bg-gray-100'>Profile</Link>
-                                        <Link to={'/dashboard/my-notes'} className='cursor-pointer text-lg text-center px-4 py-2 border-b hover:bg-gray-100'>Dashboard</Link>
+                                        <Link to={'/chat/my-profile'} className='cursor-pointer text-lg border-b w-full text-center px-4 py-2 hover:bg-gray-100'>Profile</Link>
                                         <button className='cursor-pointer text-lg text-center px-4 py-2 w-full hover:bg-gray-100' onClick={logoutHandler}>Logout</button>
                                     </div>
                                 )}

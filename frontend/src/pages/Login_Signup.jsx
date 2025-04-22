@@ -3,14 +3,17 @@ import { BiMessageDetail, BiUser } from "react-icons/bi";
 import { CiMail } from "react-icons/ci";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FiLock } from "react-icons/fi";
+import { useDispatch } from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import { login, signup } from "../services/operations/authAPI";
 
 const Login_Signup = () => {
   const [activeTab, setActiveTab] = useState("login");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -29,11 +32,14 @@ const Login_Signup = () => {
         return;
       }
 
-      // In a real app, you would handle authentication here
-      toast.success(`Successfully signed in as ${formData.email}`);
-      navigate("/");
-    } else {
-      // Register validation
+      const loginData = {
+        email: formData.email,
+        password: formData.password
+      }
+
+      dispatch(login(loginData, navigate));
+    }
+    else {
       if (!formData.firstName || !formData.lastName || !formData.email || !formData.password || !formData.confirmPassword) {
         toast.error("Please fill in all required fields");
         return;
@@ -44,18 +50,14 @@ const Login_Signup = () => {
         return;
       }
 
-      // In a real app, you would handle registration here with a backend API
-      toast.success(`Account created successfully for ${formData.firstName} ${formData.lastName}`);
+      const signupData = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        password: formData.password
+      }
 
-      // For demonstration purposes, let's switch to login tab after successful registration
-      setActiveTab("login");
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-      });
+      dispatch(signup(signupData, navigate));
     }
   };
 

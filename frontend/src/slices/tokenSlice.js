@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    loading: false,
     token: localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')) : null
 }
 
@@ -16,6 +15,6 @@ export const tokenSlice = createSlice({
     }
 })
 
-export const { setLoading, setToken } = tokenSlice.actions
+export const { setToken } = tokenSlice.actions
 
 export default tokenSlice.reducer

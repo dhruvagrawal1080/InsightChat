@@ -5,6 +5,7 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Login_Signup from "./pages/Login_Signup";
 import NotFoundPage from "./pages/NotFoundPage";
+import Dashboard from "./pages/dashboard/dashboard";
 
 function App() {
   return (
@@ -21,12 +22,11 @@ function App() {
           <Route path="/auth" element={<Login_Signup />}></Route>
           <Route path="*" element={<NotFoundPage />} />
 
-          <Route >
-            {/* to make routes of chat dashboard */}
+          <Route path="/dashboard/chats" element={<Dashboard />}>
           </Route>
 
         </Routes>
-        
+
       </div>
 
     </div>
