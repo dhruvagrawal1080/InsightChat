@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiSearch } from 'react-icons/fi';
-import { formatTime } from '../services/formatTime';
+import { formatTime } from '../../services/formatTime';
 
 const ChatList = () => {  
   // This will be replaced with actual chat data from your backend
